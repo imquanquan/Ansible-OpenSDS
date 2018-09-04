@@ -24,7 +24,7 @@ dummy:
 
 # This field indicates which way user prefers to install, currently support
 # 'repository', 'release' and 'container'
-install_from: release
+install_from: repository
 
 # These fields are NOT suggested to be modifie
 opensds_work_dir: /opt/opensds

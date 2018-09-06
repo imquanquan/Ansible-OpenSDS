@@ -11,4 +11,4 @@
   gather_facts: false
   become: True
   roles:
-    - auth
+    - osdsauth

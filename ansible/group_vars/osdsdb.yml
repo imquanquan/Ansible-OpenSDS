@@ -31,7 +31,7 @@ db_endpoint: "{{ etcd_host }}:{{ etcd_port }},{{ etcd_host }}:{{ etcd_peer_port 
 ###########
 
 etcd_release: v3.2.0
-etcd_host: 127.0.0.1
+etcd_host: 10.202.5.22
 etcd_port: 2379
 etcd_peer_port: 2380
 

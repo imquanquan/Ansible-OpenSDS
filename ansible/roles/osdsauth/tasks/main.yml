@@ -24,12 +24,33 @@
 
 - name: Update repositories cache and install libmysqlclient-dev package
   apt:
-    name: libmysqlclient-dev libapache2-mod-wsgi
+    name: "{{ packages }}"
     update_cache: yes
+  vars:
+    packages:
+    - libmysqlclient-dev
+    - libapache2-mod-wsgi
 
-- name: install keystone
-  shell: "{{ item }}"
-  with_items:
-    - bash ./script/keystone.sh install
-  when: opensds_auth_strategy == "keystone"
-  become: yes
+- name: configure opensds global info
+  shell: |
+    cat > opensds.conf <<OPENSDS_GLOABL_CONFIG_DOC
+    [osdslet]
+    api_endpoint = {{ controller_endpoint }}
+    graceful = True
+    log_file = {{ controller_log_file }}
+    socket_order = inc
+    auth_strategy = {{ opensds_auth_strategy }}
+
+    [database]
+    endpoint = {{ db_endpoint }}
+    driver = {{ db_driver }}
+  args:
+    chdir: "{{ opensds_config_dir }}"
+  ignore_errors: yes
+
+# - name: install keystone
+#   shell: "{{ item }}"
+#   with_items:
+#     - bash ./script/keystone.sh install
+#   when: opensds_auth_strategy == "keystone"
+#   become: yes

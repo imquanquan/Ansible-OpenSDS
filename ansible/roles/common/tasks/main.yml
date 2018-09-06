@@ -49,6 +49,10 @@
   include: scenarios/repository.yml
   when: install_from == "repository"
 
+  - name: include scenarios/release.yml when installing from release
+  include: scenarios/release.yml
+  when: install_from == "release"
+
 - name: copy config templates into opensds global config folder
   copy:
     src: ../../../../conf/

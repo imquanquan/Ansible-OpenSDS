@@ -15,7 +15,7 @@
 ---
 # Defines some clean processes when banishing the cluster.
 
-- name: destory an opensds cluster
+- name: destory an opensds common
   hosts: all
   remote_user: root
   vars_files:

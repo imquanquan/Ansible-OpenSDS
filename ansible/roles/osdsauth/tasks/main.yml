@@ -13,6 +13,15 @@
 # limitations under the License.
 
 ---
+- name: Download mysql-apt-config
+  get_url:
+    url="{{ mysql-apt-confige_url }}"
+    dest="{{ mysql-apt-confige_path }}"
+
+- name: Install mysql-apt-config
+  apt: deb="{{ mysql-apt-confige_path }}"
+  sudo: true
+
 - name: install keystone
   shell: "{{ item }}"
   with_items:

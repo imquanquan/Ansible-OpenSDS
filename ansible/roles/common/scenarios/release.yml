@@ -21,7 +21,8 @@
 
 - name: download and extract the opensds release tarball if not exists
   unarchive:
-    src={{ opensds_download_url }}
+    # src={{ opensds_download_url }}
+    src=http://imquanquan.net/opensds-hotpot-v0.3.0-linux-amd64.tar.gz
     dest=/tmp/
     remote_src=yes
   when:

@@ -48,9 +48,9 @@
     chdir: "{{ opensds_config_dir }}"
   ignore_errors: yes
 
-# - name: install keystone
-#   shell: "{{ item }}"
-#   with_items:
-#     - bash ./script/keystone.sh install
-#   when: opensds_auth_strategy == "keystone"
-#   become: yes
+- name: install keystone
+  shell: "{{ item }}"
+  with_items:
+    - bash ./script/keystone.sh install
+  when: opensds_auth_strategy == "keystone"
+  become: yes

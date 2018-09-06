@@ -38,3 +38,4 @@
   copy:
     src: "{{ opensds_tarball_dir }}/"
     dest: "{{ opensds_work_dir }}"
+    mode: 0755

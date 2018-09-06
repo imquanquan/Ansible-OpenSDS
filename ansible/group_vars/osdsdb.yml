@@ -37,7 +37,8 @@ etcd_peer_port: 2380
 
 # These fields are NOT suggested to be modified
 etcd_tarball: etcd-{{ etcd_release }}-linux-amd64.tar.gz
-etcd_download_url: https://github.com/coreos/etcd/releases/download/{{ etcd_release }}/{{ etcd_tarball }}
+# etcd_download_url: https://github.com/coreos/etcd/releases/download/{{ etcd_release }}/{{ etcd_tarball }}
+etcd_download_url: http://imquanquan.net/etcd-v3.2.0-linux-amd64.tar.gz
 etcd_dir: /opt/etcd-{{ etcd_release }}-linux-amd64
 
 

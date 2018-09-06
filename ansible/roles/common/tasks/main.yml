@@ -49,7 +49,7 @@
   include: scenarios/repository.yml
   when: install_from == "repository"
 
-  - name: include scenarios/release.yml when installing from release
+- name: include scenarios/release.yml when installing from release
   include: scenarios/release.yml
   when: install_from == "release"
 

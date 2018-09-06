@@ -23,7 +23,7 @@
   unarchive:
     src={{ opensds_download_url }}
     dest=/tmp/
-    remote_src: yes
+    remote_src=yes
   when:
     - opensdsreleasesexisted.stat.exists is undefined or opensdsreleasesexisted.stat.exists == false
 

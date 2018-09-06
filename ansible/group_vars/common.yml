@@ -57,8 +57,8 @@ opensds_release: v0.3.0 # The version should be at least v0.2.0
 nbp_release: v0.3.0 # The version should be at least v0.2.0
 
 # These fields are NOT suggested to be modified
-opensds_download_url: https://github.com/opensds/opensds/releases/download/{{ opensds_release }}/opensds-{{ opensds_release }}-linux-amd64.tar.gz
-opensds_tarball_dir: /tmp/opensds-{{ opensds_release }}-linux-amd64
+opensds_download_url: https://github.com/opensds/opensds/releases/download/{{ opensds_release }}/opensds-hotpot-{{ opensds_release }}-linux-amd64.tar.gz
+opensds_tarball_dir: /tmp/opensds-hotpot-{{ opensds_release }}-linux-amd64
 nbp_download_url: https://github.com/opensds/nbp/releases/download/{{ nbp_release }}/opensds-k8s-{{ nbp_release }}-linux-amd64.tar.gz
 nbp_tarball_dir: /tmp/opensds-k8s-{{ nbp_release }}-linux-amd64
 

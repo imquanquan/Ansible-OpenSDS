@@ -15,12 +15,17 @@
 ---
 - name: Download mysql-apt-config
   get_url:
-    url="{{ mysql-apt-confige_url }}"
-    dest="{{ mysql-apt-confige_path }}"
+    url:  https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb
+    dest: /tmp/mysql-apt-config_0.8.6-1_all.deb
 
-- name: Install mysql-apt-config
-  apt: deb="{{ mysql-apt-confige_path }}"
+- name: install mysql-apt-config
+  apt: deb="/tmp/mysql-apt-config_0.8.6-1_all.deb"
   sudo: true
+
+- name: Update repositories cache and install libmysqlclient-dev package
+  apt:
+    name: libmysqlclient-dev libapache2-mod-wsgi
+    update_cache: yes
 
 - name: install keystone
   shell: "{{ item }}"

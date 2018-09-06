@@ -23,12 +23,5 @@ dummy:
 ###########
 
 # These fields are NOT suggested to be modified
-controller_endpoint: 0.0.0.0:50040
+controller_endpoint: 10.202.5.22:50040
 controller_log_file: "{{ opensds_log_dir }}/osdslet.log"
-
-
-###########
-# DOCKER  #
-###########
-
-controller_docker_image: opensdsio/opensds-controller:latest

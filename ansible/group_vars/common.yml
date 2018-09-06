@@ -78,7 +78,4 @@ container_enabled: false
 # or 'flexvolume'
 nbp_plugin_type: hotpot_only
 # The IP (127.0.0.1) should be replaced with the opensds actual endpoint IP
-opensds_endpoint: http://127.0.0.1:50040
-
-# These fields are NOT suggested to be modified
-flexvolume_plugin_dir: /usr/libexec/kubernetes/kubelet-plugins/volume/exec/opensds.io~opensds
+opensds_endpoint: http://10.202.5.22:50040

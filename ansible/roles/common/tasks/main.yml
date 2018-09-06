@@ -21,12 +21,6 @@
   ignore_errors: yes
   become: yes
 
-- name: check ansible version
-  shell: "{{ item }}"
-  with_items:
-    - bash ./script/check_ansible_version.sh
-  become: yes
-
 - name: run the equivalent of "apt-get update" as a separate step
   apt:
     update_cache: yes
@@ -54,10 +48,6 @@
 - name: include scenarios/repository.yml when installing from repository
   include: scenarios/repository.yml
   when: install_from == "repository"
-
-- name: include scenarios/release.yml when installing from release
-  include: scenarios/release.yml
-  when: install_from == "release"
 
 - name: copy config templates into opensds global config folder
   copy:

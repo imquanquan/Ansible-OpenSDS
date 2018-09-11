@@ -29,7 +29,7 @@ enabled_backend: ceph
 dock_type: provisioner
 
 # These fields are NOT suggested to be modified
-dock_endpoint: localhost:50050
+dock_endpoint: 0.0.0.0:50050
 dock_log_file: "{{ opensds_log_dir }}/osdsdock.log"
 
 

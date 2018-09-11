@@ -13,18 +13,18 @@
 # limitations under the License.
 
 ---
-# Defines some clean processes when banishing the cluster.
+# Defines deployment design and assigns role to server groups
 
-- name: destory an opensds common
+- name: deploy an opensds common
   hosts: all
   remote_user: root
   vars_files:
-    - group_vars/common.yml
-    - group_vars/auth.yml
-    - group_vars/osdsdb.yml
-    - group_vars/osdslet.yml
-    - group_vars/osdsdock.yml
+    - ../group_vars/common.yml
+    - ../group_vars/auth.yml
+    - ../group_vars/osdsdb.yml
+    - ../group_vars/osdslet.yml
+    - ../group_vars/osdsdock.yml
   gather_facts: false
   become: True
   roles:
-    - cleaner
+    - common

@@ -1,6 +1,6 @@
 ---
 - name: deploy  opensds ctl
-  hosts: controllers
+  hosts: docks
   remote_user: root
   vars_files:
     - group_vars/common.yml
@@ -11,6 +11,4 @@
   gather_facts: false
   become: True
   roles:
-    - osdsauth
-    - osdsdb
-    - osdslet
+    - osdsdock

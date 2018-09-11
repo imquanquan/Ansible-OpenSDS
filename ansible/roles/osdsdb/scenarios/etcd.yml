@@ -39,17 +39,5 @@
 - name: make etcd systemd unit file
   template: src=etcd.service.j1 dest=/etc/systemd/system/etcd.service
 
-- name: Check if etcd is running
-  shell: ps aux | grep etcd | grep -v grep
-  ignore_errors: true
-  register: service_etcd_status
-
 - name: run etcd daemon service
   shell: systemctl daemon-reload && systemctl restart etcd
-
-- name: check etcd cluster health
-  shell: ./etcdctl cluster-health
-  become: true
-  ignore_errors: true
-  args:
-    chdir: "{{ etcd_dir }}"

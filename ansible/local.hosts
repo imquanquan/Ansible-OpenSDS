@@ -19,6 +19,3 @@ localhost ansible_connection=local
 ceph-node1
 ceph-node2
 ceph-node3
-
-[worker-nodes]
-localhost ansible_connection=local

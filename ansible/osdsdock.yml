@@ -8,7 +8,7 @@
     - group_vars/osdsdb.yml
     - group_vars/osdslet.yml
     - group_vars/osdsdock.yml
-  gather_facts: false
+  gather_facts: True
   become: True
   roles:
     - osdsdock

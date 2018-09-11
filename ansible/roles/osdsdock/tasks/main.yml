@@ -15,8 +15,6 @@
 ---
 - name: configure opensds global info
   template: src=opensds.conf.j1 dest={{ opensds_config_dir }}/opensds.conf
-  vars:
-    dock_host: hostvars[inventory_hostname]['ansible_default_ipv4']['address']
 
 - name: include scenarios/ceph.yml
   include: scenarios/ceph.yml

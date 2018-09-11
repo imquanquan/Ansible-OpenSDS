@@ -6,7 +6,7 @@ socket_order = inc
 auth_strategy = {{ opensds_auth_strategy }}
 
 [osdsdock]
-api_endpoint = {{ dock_host }}:{{ dock_port }}
+api_endpoint = {{ ansible_default.ipv4.address }}:{{ dock_port }}
 log_file = {{ dock_log_file }}
 # Choose the type of dock resource, only support 'provisioner' and 'attacher'.
 dock_type = {{ dock_type }}

@@ -1,0 +1,10 @@
+[osdslet]
+api_endpoint = {{ controller_endpoint }}
+graceful = True
+log_file = {{ controller_log_file }}
+socket_order = inc
+auth_strategy = {{ opensds_auth_strategy }}
+
+[database]
+endpoint = {{ db_endpoint }}
+driver = {{ db_driver }}

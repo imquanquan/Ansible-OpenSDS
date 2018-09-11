@@ -1,4 +1,4 @@
-# Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
+  # Copyright (c) 2018 Huawei Technologies Co., Ltd. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,17 +33,19 @@
   when:
     - etcdexisted.stat.exists is undefined or etcdexisted.stat.exists == false
 
+- name: check etcd working directory
+  file: name=/var/lib/etcd state=directory
+
+- name: make etcd systemd unit file
+  template: src=etcd.service.j1 dest=/etc/systemd/system/etcd.service
+
 - name: Check if etcd is running
   shell: ps aux | grep etcd | grep -v grep
   ignore_errors: true
   register: service_etcd_status
 
 - name: run etcd daemon service
-  shell: nohup ./etcd --advertise-client-urls http://{{ etcd_host }}:{{ etcd_port }} --listen-client-urls http://{{ etcd_host }}:{{ etcd_port }}  --listen-peer-urls http://{{ etcd_host }}:{{ etcd_peer_port }} &>>etcd.log &
-  become: true
-  args:
-    chdir: "{{ etcd_dir }}"
-  when: service_etcd_status.rc != 0
+  shell: systemctl daemon-reload && systemctl restart etcd
 
 - name: check etcd cluster health
   shell: ./etcdctl cluster-health

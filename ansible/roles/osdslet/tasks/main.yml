@@ -14,6 +14,23 @@
 
 ---
 
+- name: configure opensds global info
+  shell: |
+    cat > opensds.conf <<OPENSDS_GLOABL_CONFIG_DOC
+    [osdslet]
+    api_endpoint = {{ controller_endpoint }}
+    graceful = True
+    log_file = {{ controller_log_file }}
+    socket_order = inc
+    auth_strategy = {{ opensds_auth_strategy }}
+
+    [database]
+    endpoint = {{ db_endpoint }}
+    driver = {{ db_driver }}
+  args:
+    chdir: "{{ opensds_config_dir }}"
+  ignore_errors: yes
+
 - name: run osdslet daemon service
   shell:
     cmd: |

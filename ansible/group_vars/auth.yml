@@ -23,7 +23,7 @@ dummy:
 ###########
 
 # OpenSDS authentication strategy, support 'noauth' and 'keystone'.
-opensds_auth_strategy: keystone
+opensds_auth_strategy: noauth
 
 mysql-apt-confige_url: https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb
 mysql-apt-confige_path: /tmp/mysql-apt-config_0.8.6-1_all.deb
